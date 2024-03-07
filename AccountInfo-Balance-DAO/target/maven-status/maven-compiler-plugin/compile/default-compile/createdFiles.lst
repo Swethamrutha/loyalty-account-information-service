@@ -1,0 +1,16 @@
+com\tesco\offers\config\ConfigurationFile_Balance.class
+com\tesco\offers\account\balances\dao\beans\BalanceDaoRequest.class
+com\tesco\offers\account\balance\entities\Channel_Details.class
+com\tesco\offers\account\balances\dao\beans\BalanceDAOResponse.class
+com\tesco\offers\account\balance\entities\Client_Details.class
+com\tesco\offers\account\balance\utils\HibernateUtils.class
+com\tesco\offers\account\balance\entities\Customer_Details.class
+com\tesco\offers\account\balance\dao\exception\BalanceBusinessException.class
+com\tesco\offers\account\balance\dao\implementation\BalanceSpringDaoImplementation.class
+com\tesco\offers\account\balance\dao\implementation\PureHibernateBalanceDao.class
+com\tesco\offers\account\balance\dao\implementation\BalanceDaoJDBCOld.class
+com\tesco\offers\account\balance\entities\Balance_Info.class
+com\tesco\offers\account\balance\dao\exception\BalanceSystemException.class
+com\tesco\offers\account\balance\dao\implementation\BalanceDAOImplementation.class
+com\tesco\offers\account\balance\dao\implementation\Test.class
+com\tesco\offers\account\balance\dao\BalanceDAOInterface.class

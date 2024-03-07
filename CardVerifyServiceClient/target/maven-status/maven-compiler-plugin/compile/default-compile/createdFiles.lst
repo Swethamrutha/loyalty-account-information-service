@@ -1,0 +1,4 @@
+com\tesco\offers\cardverifyservice\client\implementation\CardVerifyServiceClientImplementation.class
+com\tesco\offers\cardverifyservice\client\interf\CardVerifyServiceClient.class
+com\tesco\offers\cardverifyservice\client\beans\CardVerifyServiceRequest.class
+com\tesco\offers\cardverifyservice\client\beans\CardVerifyServiceResponse.class

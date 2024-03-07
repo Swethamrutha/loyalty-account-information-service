@@ -1,0 +1,117 @@
+/*public CardsDAOImplementation()
+	{
+		super(prepareCardJdbcTemplate(),"Get_LinkedCards");
+		registerOutInParams();
+	}
+	
+	
+	private static JdbcTemplate prepareCardJdbcTemplate() {
+		// TODO Auto-generated method stub
+	DriverManagerDataSource datasource=new DriverManagerDataSource(); 
+	datasource.setDriverClassName("com.mysql.jdbc.Driver");
+	datasource.setUrl("jdbc:mysql://localhost:3306/swethaRTP4223");
+	datasource.setUsername("root");
+	datasource.setPassword("root");
+	JdbcTemplate jdbctemplate=new JdbcTemplate(datasource);
+     return jdbctemplate;
+}
+
+
+   private void registerOutInParams() {
+		// TODO Auto-generated method stub
+	   declareParameter(new SqlReturnResultSet("cardResultSet", this));
+		//set balance daorequest 
+		declareParameter(new SqlParameter("CLIENT_ID", Types.VARCHAR));
+		declareParameter(new SqlParameter("CHANNEL_ID", Types.VARCHAR));
+		declareParameter(new SqlParameter("CARD_NUMBER", Types.VARCHAR));
+		declareParameter(new SqlOutParameter("RESPCODE", Types.VARCHAR));
+		
+		declareParameter(new SqlOutParameter("RESPMSG", Types.VARCHAR));
+		compile();
+	}
+
+   public CardsDAOResponse mapRow(ResultSet rs, int arg1) throws SQLException {
+		// TODO Auto-generated method stub
+	   CardsDAOResponse response=new CardsDAOResponse();
+	   String getLinkedcards=rs.getString(3);
+	   System.out.println("Getting Cards::"+getLinkedcards);
+	  String[] getSeparateCard= getLinkedcards.split(",");
+	  List l=new ArrayList();
+	    
+	  for(String get:getSeparateCard)
+	  {
+	    l.add(get);
+	     response.setLinkedCards(l);
+	  }
+	  System.out.println("List getting::"+l.size());
+	   System.out.println("Response printing::::::::::"+response);
+	   return response;
+	}
+
+
+   public CardsDAOResponse getAllCards(CardsDAORequest request)
+			throws LinkedCardBusinessException, LinkedCardSystemException, ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+	   
+	   
+	   CardsDAOResponse cardsDAOResponse=new CardsDAOResponse();
+	   System.out.println("coming to cardResponse");
+	   Map<String,Object> inputMap=new HashMap<String,Object>();
+	     inputMap.put("CLIENT_ID", request.getClientid());
+	     inputMap.put("CHANNEL_ID", request.getChannelid());
+	     inputMap.put("CARD_NUMBER", request.getAccountnumber());
+	   
+	     Map<String, Object> resMap = super.execute(inputMap);
+		String dbRespCode = resMap.get("RESPCODE").toString();
+		String dbRespMsg = resMap.get("RESPMSG").toString();
+	   
+		if("0".equals(dbRespCode))
+	   {
+		List<CardsDAOResponse>	list=(List<CardsDAOResponse>)resMap.get("cardResultSet");
+		System.out.println("result Set list size::::::::"+list.size());
+		
+		for (CardsDAOResponse cardsRes : list) {
+			System.out.println("cards data:::"+cardsRes.getLinkedCards());
+	        List<String> ss=cardsRes.getLinkedCards();
+	        cardsDAOResponse.setLinkedCards(ss);
+	        cardsDAOResponse.setStatusCode(dbRespCode);
+			cardsDAOResponse.setStatusMsg(dbRespMsg);
+			}
+		
+	   }
+   
+		else if("100".equals(dbRespCode) || "102".equals(dbRespCode) )
+		{
+			throw new LinkedCardBusinessException("100", "LinkedCardsBusinessException" );
+		}
+		else
+		{
+			throw new LinkedCardSystemException("101", "LinkedCardsSystemException");
+		}
+		
+		System.out.println("cardsDaoResponse:::::"+cardsDAOResponse);
+		return cardsDAOResponse;
+	}
+	
+
+   public static void main(String[] args) throws ClassNotFoundException, LinkedCardBusinessException, LinkedCardSystemException, SQLException {
+		// TODO Auto-generated method stub
+
+	   CardsDAO cardsSpringDao=new CardsDAOImplementation();
+	   CardsDAORequest request=new CardsDAORequest();
+		request.setAccountnumber("1111222233334444");
+		request.setChannelid("online");
+		request.setClientid("web");
+		
+	 CardsDAOResponse cardDAOResponse = cardsSpringDao.getAllCards(request);
+	 cardsSpringDao.getAllCards(request);
+    System.out.println("Response of LinkedCards:::"+cardDAOResponse);
+		
+	}
+
+*/
+
+
+
+	
+	

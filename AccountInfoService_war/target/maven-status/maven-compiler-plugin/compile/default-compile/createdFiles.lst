@@ -1,0 +1,5 @@
+com\tesco\offers\web\Customer.class
+com\tesco\offers\web\AppIntializerInitializer.class
+com\tesco\offers\web\CustomerRestController.class
+com\tesco\offers\web\DaoClass.class
+com\tesco\offers\web\AllConfiguration.class

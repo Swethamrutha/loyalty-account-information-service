@@ -1,0 +1,36 @@
+2019-03-12 10:49:05,467 +0530 [main] % -5p (AbstractApplicationContext.java:582) -Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@470e2030: startup date [Tue Mar 12 10:49:05 IST 2019]; root of context hierarchy
+2019-03-12 10:49:05,953 +0530 [main] % -5p (ConfigurationClassEnhancer.java:348) -@Bean method JavaConfiguration_Feature.getPropertyPlaceholderConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2019-03-12 10:49:06,080 +0530 [main] % -5p (PropertiesLoaderSupport.java:172) -Loading properties file from class path resource [application.properties]
+2019-03-12 10:49:06,205 +0530 [main] % -5p (DriverManagerDataSource.java:133) -Loaded JDBC driver: com.mysql.jdbc.Driver
+2019-03-12 10:49:06,589 +0530 [main] % -5p (JavaReflectionManager.java:66) -HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2019-03-12 10:49:06,605 +0530 [main] % -5p (Version.java:54) -HHH000412: Hibernate Core {4.3.8.Final}
+2019-03-12 10:49:06,605 +0530 [main] % -5p (Environment.java:239) -HHH000206: hibernate.properties not found
+2019-03-12 10:49:06,605 +0530 [main] % -5p (Environment.java:346) -HHH000021: Bytecode provider name : javassist
+2019-03-12 10:49:08,846 +0530 [main] % -5p (Dialect.java:145) -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-12 10:49:09,080 +0530 [main] % -5p (TransactionFactoryInitiator.java:62) -HHH000399: Using default transaction strategy (direct JDBC transactions)
+2019-03-12 10:49:09,080 +0530 [main] % -5p (ASTQueryTranslatorFactory.java:47) -HHH000397: Using ASTQueryTranslatorFactory
+2019-03-12 10:49:09,689 +0530 [main] % -5p (AbstractApplicationContext.java:582) -Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5974109: startup date [Tue Mar 12 10:49:09 IST 2019]; root of context hierarchy
+2019-03-12 10:49:09,743 +0530 [main] % -5p (ConfigurationClassEnhancer.java:348) -@Bean method JavaConfiguration_Feature.getPropertyPlaceholderConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2019-03-12 10:49:09,744 +0530 [main] % -5p (PropertiesLoaderSupport.java:172) -Loading properties file from class path resource [application.properties]
+2019-03-12 10:49:09,776 +0530 [main] % -5p (DriverManagerDataSource.java:133) -Loaded JDBC driver: com.mysql.jdbc.Driver
+2019-03-12 10:49:09,854 +0530 [main] % -5p (Dialect.java:145) -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-12 10:49:09,870 +0530 [main] % -5p (TransactionFactoryInitiator.java:62) -HHH000399: Using default transaction strategy (direct JDBC transactions)
+2019-03-12 10:49:09,870 +0530 [main] % -5p (ASTQueryTranslatorFactory.java:47) -HHH000397: Using ASTQueryTranslatorFactory
+2019-03-12 10:51:12,430 +0530 [main] % -5p (AbstractApplicationContext.java:582) -Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@470e2030: startup date [Tue Mar 12 10:51:12 IST 2019]; root of context hierarchy
+2019-03-12 10:51:12,819 +0530 [main] % -5p (ConfigurationClassEnhancer.java:348) -@Bean method JavaConfiguration_Feature.getPropertyPlaceholderConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2019-03-12 10:51:12,835 +0530 [main] % -5p (PropertiesLoaderSupport.java:172) -Loading properties file from class path resource [application.properties]
+2019-03-12 10:51:12,966 +0530 [main] % -5p (DriverManagerDataSource.java:133) -Loaded JDBC driver: com.mysql.jdbc.Driver
+2019-03-12 10:51:13,107 +0530 [main] % -5p (JavaReflectionManager.java:66) -HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2019-03-12 10:51:13,123 +0530 [main] % -5p (Version.java:54) -HHH000412: Hibernate Core {4.3.8.Final}
+2019-03-12 10:51:13,123 +0530 [main] % -5p (Environment.java:239) -HHH000206: hibernate.properties not found
+2019-03-12 10:51:13,185 +0530 [main] % -5p (Environment.java:346) -HHH000021: Bytecode provider name : javassist
+2019-03-12 10:51:13,738 +0530 [main] % -5p (Dialect.java:145) -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-12 10:51:13,882 +0530 [main] % -5p (TransactionFactoryInitiator.java:62) -HHH000399: Using default transaction strategy (direct JDBC transactions)
+2019-03-12 10:51:13,882 +0530 [main] % -5p (ASTQueryTranslatorFactory.java:47) -HHH000397: Using ASTQueryTranslatorFactory
+2019-03-12 10:51:14,328 +0530 [main] % -5p (AbstractApplicationContext.java:582) -Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5974109: startup date [Tue Mar 12 10:51:14 IST 2019]; root of context hierarchy
+2019-03-12 10:51:14,392 +0530 [main] % -5p (ConfigurationClassEnhancer.java:348) -@Bean method JavaConfiguration_Feature.getPropertyPlaceholderConfigurer is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2019-03-12 10:51:14,392 +0530 [main] % -5p (PropertiesLoaderSupport.java:172) -Loading properties file from class path resource [application.properties]
+2019-03-12 10:51:14,407 +0530 [main] % -5p (DriverManagerDataSource.java:133) -Loaded JDBC driver: com.mysql.jdbc.Driver
+2019-03-12 10:51:14,470 +0530 [main] % -5p (Dialect.java:145) -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-12 10:51:14,470 +0530 [main] % -5p (TransactionFactoryInitiator.java:62) -HHH000399: Using default transaction strategy (direct JDBC transactions)
+2019-03-12 10:51:14,470 +0530 [main] % -5p (ASTQueryTranslatorFactory.java:47) -HHH000397: Using ASTQueryTranslatorFactory

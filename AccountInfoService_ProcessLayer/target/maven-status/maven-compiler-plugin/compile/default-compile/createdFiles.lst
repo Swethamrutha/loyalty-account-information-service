@@ -1,0 +1,10 @@
+com\tesco\offers\account\process\beans\FeatureProcess.class
+com\tesco\offers\account\process\util\AccountInfoProcessUtil.class
+com\tesco\offers\account\process\beans\LinkedCardProcess.class
+com\tesco\offers\account\process\beans\AccountInfoProcessRequestBean.class
+com\tesco\offers\account\process\beans\TaskResult.class
+com\tesco\offers\account\process\beans\Balance.class
+com\tesco\offers\account\process\util\AccountInfoProcessConstants.class
+com\tesco\offers\account\process\beans\AccountInfoProcessResponseBean.class
+com\tesco\offers\account\process\beans\BalanceProcess.class
+com\tesco\offers\account\process\AccountInfoProcess.class

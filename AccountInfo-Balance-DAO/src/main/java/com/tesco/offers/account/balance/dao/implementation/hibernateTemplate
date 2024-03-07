@@ -1,0 +1,8 @@
+	
+				/*
+				DetachedCriteria detachedCriteriaCustomer=DetachedCriteria.forClass(Customer_Details.class);
+				detachedCriteriaCustomer.add(Restrictions.eq("cardNumber", request.getAccountnumber()));
+				 List<Customer_Details> listCustomerDetails = (List<Customer_Details>) hibernateTemplatecard.findByCriteria(detachedCriteriaCustomer);
+				 System.out.println("list of detachedCriteriaCustomer  details in feature:::::::::"+listCustomerDetails.size());
+				System.out.println(detachedCriteriaCustomer);*/
+				

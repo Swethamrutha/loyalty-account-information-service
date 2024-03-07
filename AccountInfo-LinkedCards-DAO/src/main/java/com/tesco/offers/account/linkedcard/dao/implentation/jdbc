@@ -1,0 +1,84 @@
+/*public CardsDAOResponse getAllCards(CardsDAORequest request) throws LinkedCardBusinessException, LinkedCardSystemException, ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+		CardsDAOResponse response=null;
+		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/swethaRTP4223" ,"root","root");
+			String sql="{call Get_LinkedCards(?,?,?,?,?)}";
+			CallableStatement cs = con.prepareCall(sql);
+			System.out.println("Features Implemetation callable"+cs);
+			
+			
+			cs.registerOutParameter(4, Types.VARCHAR);
+			cs.registerOutParameter(5, Types.VARCHAR);
+			
+			System.out.println("Getting and checking:::::: "+request.getAccountnumber());
+			cs.setString(1, request.getClientid());
+			cs.setString(2, request.getChannelid());
+			cs.setString(3, request.getAccountnumber());
+			cs.execute();
+			
+			ResultSet rs = cs.executeQuery();
+			System.out.println("ResultSetException::::::::::"+rs);
+			System.out.println(rs);
+			
+			
+		     System.out.println("output parameter of respcode:::::::"+cs.getString(4));
+			System.out.println("output parameter of respMsg:::::::"+cs.getString(5));
+			System.out.println(cs);
+			
+			String dbRespCode=cs.getString(4);
+			String dbRespMsg=cs.getString(5);
+			
+         System.out.println("dbrespcode:::::::::"+dbRespCode);			
+	
+		if("0".equals(dbRespCode))
+		{
+			while(rs.next())
+			{
+		List<String> linkedcards=new ArrayList<String>();
+		String cards=rs.getString(3);
+		String[] split=cards.split(",");
+		for (String gettingCards : split) {
+         linkedcards.add(gettingCards);
+			}
+		linkedcards.add(rs.getString(3));
+		linkedcards.add("22222222222222222222");
+		
+		
+        response=new CardsDAOResponse();
+		response.setStatusCode("0");
+		response.setStatusMsg("success");
+		response.setLinkedCards(linkedcards);
+			}
+		}
+		else if("100".equals(dbRespCode))
+		{
+			throw new LinkedCardBusinessException("100", "LinkedCardsBusinessException" );
+		}
+		else
+		{
+			throw new LinkedCardSystemException("101", "LinkedCardsSystemException");
+			
+			
+		}
+		}
+		catch(LinkedCardBusinessException lbe)
+		{
+			throw lbe;
+			
+		}
+		catch(LinkedCardSystemException lse)
+		{
+			throw lse;
+		}
+		
+		return response;
+	}
+
+*/	
+	
+	
+	

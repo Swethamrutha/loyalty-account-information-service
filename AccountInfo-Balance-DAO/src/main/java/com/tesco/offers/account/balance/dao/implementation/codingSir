@@ -1,0 +1,151 @@
+/* @CopyRight Tesco.All Rights are reserved */
+package com.tesco.offers.account.balance.dao.implementation;
+
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.stereotype.Component;
+
+import com.tesco.offers.account.balance.dao.BalanceDAOInterface;
+import com.tesco.offers.account.balance.dao.exception.BalanceBusinessException;
+import com.tesco.offers.account.balance.dao.exception.BalanceSystemException;
+import com.tesco.offers.account.balance.entities.Balance_Info;
+import com.tesco.offers.account.balance.entities.Channel_Details;
+import com.tesco.offers.account.balance.entities.Client_Details;
+import com.tesco.offers.account.balance.entities.Customer_Details;
+import com.tesco.offers.account.balances.dao.beans.BalanceDAOResponse;
+import com.tesco.offers.account.balances.dao.beans.BalanceDaoRequest;
+import com.tesco.offers.config.ConfigurationFile_Balance;
+
+/**
+ * @author:Tesco
+ * @Date:Feb 5, 2019
+ * @Time:11:52:30 AM
+ * @Description:Tesco Project
+ */
+@Component
+public class BalanceDAOImplementation implements BalanceDAOInterface {
+
+	//@Autowired
+	private HibernateTemplate hibernateTemplate;
+
+	
+	public BalanceDAOResponse getBalance(BalanceDaoRequest request) 
+			throws BalanceBusinessException, BalanceSystemException {
+        BalanceDAOResponse balanceDAOResponse = new BalanceDAOResponse();
+       
+        ApplicationContext factory = new AnnotationConfigApplicationContext(ConfigurationFile_Balance.class);
+         hibernateTemplate = factory.getBean(HibernateTemplate.class);
+        
+        
+        List<Client_Details> listClientDetails = xx();
+        
+        
+        
+		// List<Client_Details> listClientDetails = getClientDetails(request.getClientid());
+		System.out.println(listClientDetails.size());
+		if (listClientDetails.size() < 1 || listClientDetails == null) {
+			balanceDAOResponse.setRespCode("100");
+			balanceDAOResponse.setRespMsg("InvalidClient");
+
+		}
+		
+		
+		final List<Channel_Details> listChannelDetails = getChannelDetails(request.getChannelid());
+		 if (listChannelDetails.size() < 1 || listChannelDetails == null) {
+			balanceDAOResponse.setRespCode("101");
+			balanceDAOResponse.setRespMsg("Invalid ChannelId");
+		}
+
+		// getting details of customer
+
+		DetachedCriteria detachedCriteriaCustomer = DetachedCriteria.forClass(Customer_Details.class);
+		detachedCriteriaCustomer.add(Restrictions.eq("cardNumber", request.getAccountnumber()));
+		List<Customer_Details> listCustomerDetails = (List<Customer_Details>) hibernateTemplate.findByCriteria(detachedCriteriaCustomer);
+		
+		if (listCustomerDetails.size() < 1 || listCustomerDetails == null) {
+			balanceDAOResponse.setRespCode("102");
+			balanceDAOResponse.setRespMsg("Invalid Customer");
+		}
+
+		// getting details of balance information
+
+		String hql = "From  Balance_Info bal where bal.cardNumber=:card_num";
+		DetachedCriteria detachedCriteriabalance = DetachedCriteria.forClass(Balance_Info.class);
+		// detachedCriteriabalance.add(Restrictions.eq("cardNumber",
+		// request.getAccountnumber()));
+		List<Balance_Info> listCustomerbalance = (List<Balance_Info>) hibernateTemplate.findByNamedParam(hql,new String[] { "card_num" }, new Object[] { request.getAccountnumber() });
+		
+		if (listCustomerbalance.size() == 1) {
+			for (Balance_Info balance_Info : listCustomerbalance) {
+		       balanceDAOResponse.setAvailablePts(balance_Info.getAvailablePoints());
+				balanceDAOResponse.setBalanceAmt(balance_Info.getBalance());
+				balanceDAOResponse.setCreditLimit(balance_Info.getCreditLimit());
+
+			}
+		}
+		if (listCustomerbalance == null) {
+			balanceDAOResponse.setRespCode("103");
+			balanceDAOResponse.setRespMsg("Invalid Balance");
+
+		}
+
+		System.out.println(balanceDAOResponse);
+		return balanceDAOResponse;
+	}
+
+	public List<Client_Details> xx() {
+		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Client_Details.class);
+		detachedCriteria.add(Restrictions.eq("client", "web"));
+		List<Client_Details> listClientDetails=(List<Client_Details>) hibernateTemplate.findByCriteria(detachedCriteria);
+		return listClientDetails;
+	}
+	
+	public List<Client_Details> getClientDetails(final String clientId) {
+		List<Client_Details> ll = xx();
+		return ll;
+	}
+
+	public List<Channel_Details> getChannelDetails(final String channelId)
+	{
+
+		DetachedCriteria detachedCriteriaChannel = DetachedCriteria.forClass(Channel_Details.class);
+		detachedCriteriaChannel.add(Restrictions.eq("channel", channelId));
+		return (List<Channel_Details>) hibernateTemplate.findByCriteria(detachedCriteriaChannel);
+    }
+	
+	
+	public static void main(String[] args) throws BalanceBusinessException, BalanceSystemException {
+		// TODO Auto-generated method stub
+	ApplicationContext factory = new AnnotationConfigApplicationContext(ConfigurationFile_Balance.class);
+		
+	
+	BalanceDAOImplementation balImpl = (BalanceDAOImplementation) factory.getBean("balanceDAOImplementation");
+	System.out.println("############################################################################");
+		System.out.println("Autowired from response :::"+balImpl);
+		
+		System.out.println("############################################################################");
+
+		BalanceDaoRequest request = new BalanceDaoRequest();
+		request.setClientid("web");
+		request.setChannelid("online");
+		request.setAccountnumber("1111222233334444");
+
+		balImpl.getBalance(request);
+		
+	}
+
+	
+	
+	
+	
+	
+	
+	
+
+}
